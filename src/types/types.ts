@@ -8,11 +8,3 @@ export const navItems: NavItem = {
     href: "/dashboard",
 }
 
-export const dashboardLinks = [
-    { href: "/dashboard", label: "Dashboard" },
-    { href: "/roomListing", label: "Add Your Room" },
-    { href: "#", label: "Explore" },
-    { href: "#", label: "Favorites" },
-    { href: "#", label: "Profile" },
-];
-

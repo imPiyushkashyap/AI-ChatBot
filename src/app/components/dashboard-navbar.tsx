@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
-import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -9,51 +8,14 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
 import { ModeToggle } from "@/components/ui/mode-toggle";
-import { usePathname } from "next/navigation";
-import { dashboardLinks } from "@/types/types";
 
 const DashboardNavbar = () => {
   const { data: session } = useSession();
-  const pathname = usePathname();
-
-  const links = [
-    { href: "/dashboard", label: "Dashboard" },
-    { href: "/roomListing", label: "Add Your Room" },
-    { href: "#", label: "Explore" },
-    { href: "#", label: "Favorites" },
-    { href: "#", label: "Profile" },
-  ];
 
   return (
-    <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4">
-      <Sheet>
-        <SheetTrigger asChild>
-          <Button variant="outline" size="icon" className="md:hidden">
-            <Menu className="h-5 w-5" />
-          </Button>
-        </SheetTrigger>
-        <SheetContent side="left">
-          <nav className="grid gap-6">
-            {links.map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                className={
-                  pathname === href
-                    ? "text-foreground"
-                    : "text-muted-foreground"
-                }
-              >
-                {label}
-              </Link>
-            ))}
-          </nav>
-        </SheetContent>
-      </Sheet>
-
+    <header className="sticky top-0 flex h-16 items-center gap-4  border-b bg-background px-4">
       <div className="ml-auto flex items-center gap-4">
         <ModeToggle />
         <DropdownMenu>
@@ -69,9 +31,6 @@ const DashboardNavbar = () => {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem>
-              <Link href="/my-account">My Account</Link>
-            </DropdownMenuItem>
             <DropdownMenuItem
               onClick={() => signOut({ callbackUrl: "/" })}
               className="text-red-500"
