@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import DashboardNavbar from "../components/dashboard-navbar";
 import Chat from "../components/chat";
+import Spinner from "@/components/ui/spinner";
 
 const Dashboard = () => {
   const { data: session, status } = useSession();
@@ -13,8 +14,8 @@ const Dashboard = () => {
 
   if (status === "loading") {
     return (
-      <div className="flex items-center select-none animate-pulse justify-center h-screen text-4xl font-semibold">
-        AI ChatBot
+      <div className="flex items-center select-none  justify-center h-screen text-7xl ">
+        <Spinner />
       </div>
     );
   }
