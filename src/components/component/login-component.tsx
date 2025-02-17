@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { ChromeIcon, FacebookIcon } from "lucide-react";
+import { ChromeIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { signIn, useSession } from "next-auth/react";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
