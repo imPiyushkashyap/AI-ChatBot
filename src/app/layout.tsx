@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import SessionWrapper from "./components/sessionWrapper";
 import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -26,11 +25,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* Assuming SessionWrapper is a component you want to include */}
-          <SessionWrapper>
-            {children}
-            <Analytics />
-          </SessionWrapper>
+          {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
